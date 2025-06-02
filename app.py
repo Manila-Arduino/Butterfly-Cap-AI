@@ -24,14 +24,14 @@ video = Video(cam_index, img_width, img_height)
 od_custom = OD_Custom(
     "detect.tflite",
     [
-        "1f",
-        "1m",
-        "2f",
-        "2m",
-        "3f",
-        "3m",
+        "I. Leuconoe (Female)",
+        "I. Leuconoe (Male)",
+        "Papilio Lowi (Female)",
+        "Papilio Lowi (Male)",
+        "P. Demoleus (Female)",
+        "P. Demoleus (Male)",
     ],
-    0.2,
+    0.6,
 )
 
 # ? -------------------------------- VARIABLES
