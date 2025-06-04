@@ -1,5 +1,4 @@
 from typing import List, Sequence
-from cv2.typing import MatLike
 from classes.Arduino import Arduino
 from classes.BoxedObject import BoxedObject
 from classes.OD_Custom import OD_Custom
@@ -32,6 +31,9 @@ od_custom = OD_Custom(
         "P. Demoleus (Male)",
     ],
     0.6,
+    img_width=img_width,
+    img_height=img_height,
+    max_object_size_percent=0.80,
 )
 
 # ? -------------------------------- VARIABLES
@@ -40,9 +42,10 @@ od_custom = OD_Custom(
 # ? -------------------------------- FUNCTIONS
 
 
-def on_od_receive(results: Sequence[BoxedObject]):
-    # TODO 3 ------------------------------------------------
-    pass
+def on_od_receive(max_object: BoxedObject, results: Sequence[BoxedObject]):
+    print(
+        f"Max object detected: {max_object.entity} with confidence {max_object.score:.2f}"
+    )
 
 
 def on_arduino_receive(s: str):
@@ -61,7 +64,7 @@ def loop():
     img = video.capture(display=False)
 
     #! OBJECT DETECTION
-    img, results = od_custom.detect(img)
+    img = od_custom.detect(img, on_od_receive)
 
     #! DISPLAY VIDEO
     video.displayImg(img)
