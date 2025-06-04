@@ -30,7 +30,7 @@ od_custom = OD_Custom(
         "P. Demoleus (Female)",
         "P. Demoleus (Male)",
     ],
-    0.2,
+    0.05,
     img_width=img_width,
     img_height=img_height,
     max_object_size_percent=0.80,
