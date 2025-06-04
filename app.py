@@ -27,7 +27,7 @@ arduino = Arduino(arduino_port)
 video = Video(cam_index, img_width, img_height)
 
 od_custom = OD_Custom(
-    "detect.tflite",
+    "/home/pi/Desktop/ai/detect.tflite",
     [
         "I. Leuconoe (Female)",
         "I. Leuconoe (Male)",

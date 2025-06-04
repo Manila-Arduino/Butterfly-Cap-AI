@@ -55,22 +55,16 @@ NOTES:
 NOTE!!!!
 FOR RPI 5 AUTOSTART DO THIS INSTEAD
 
-mkdir -p ~/.config/autostart
 Create desktop launcher file:
-
-bash
-Copy
-Edit
+mkdir -p ~/.config/autostart
 nano ~/.config/autostart/ai-app.desktop
+
 Add this content:
 
-ini
-Copy
-Edit
 [Desktop Entry]
 Type=Application
 Name=AI Camera App
-Exec=/home/admin/Desktop/ai/venv/bin/python /home/admin/Desktop/ai/app.py
+Exec=bash -c "source /home/admin/Desktop/ai/venv/bin/activate && python /home/admin/Desktop/ai/app.py"
 X-GNOME-Autostart-enabled=true
 
 if cv2 window not working, open venv first then do && python app.py
