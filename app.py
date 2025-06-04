@@ -1,4 +1,4 @@
-is_rpi = False  # TODO: Change this to True if running on Raspberry Pi
+is_rpi = True  # TODO: Change this to True if running on Raspberry Pi
 
 from typing import List, Sequence
 from classes.Arduino import Arduino
