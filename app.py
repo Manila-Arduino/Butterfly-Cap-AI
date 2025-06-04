@@ -1,3 +1,5 @@
+is_rpi = False  # TODO: Change this to True if running on Raspberry Pi
+
 from typing import List, Sequence
 from classes.Arduino import Arduino
 from classes.BoxedObject import BoxedObject
@@ -14,6 +16,10 @@ input_layer_name = "input_layer_4"
 output_layer_name = "output_0"
 
 arduino_port = ""
+if is_rpi:
+    from classes.ShutdownButton import ShutdownButton
+
+    shutdown_button = ShutdownButton(16)
 
 
 # ? -------------------------------- CLASSES

@@ -15,16 +15,16 @@ oled = SSD1306_I2C(128, 64, i2c, addr=0x3C)
 oled.fill(0)
 oled.show()
 
-# Create a blank image buffer
-width, height = oled.width, oled.height
-image = Image.new("1", (width, height))
-draw = ImageDraw.Draw(image)
-font = ImageFont.load_default()
+# # Create a blank image buffer
+# width, height = oled.width, oled.height
+# image = Image.new("1", (width, height))
+# draw = ImageDraw.Draw(image)
+# font = ImageFont.load_default()
 
-# Draw text
-draw.text((0, 0), "Hello, Pi 5B!", font=font, fill=255)
+# # Draw text
+# draw.text((0, 0), "Hello, Pi 5B!", font=font, fill=255)
 
-# Send buffer to OLED
-oled.image(image)
-oled.show()
+# # Send buffer to OLED
+# oled.image(image)
+# oled.show()
 time.sleep(5)
