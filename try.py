@@ -1,24 +1,29 @@
-# Example using luma.oled (SSD1306) on Raspberry Pi 5B via I²C
+# Example using Adafruit SSD1306 on Raspberry Pi 5B via I²C
 
-from luma.core.interface.serial import i2c
-from luma.oled.device import ssd1306
+import board
+import busio
+from adafruit_ssd1306 import SSD1306_I2C
 from PIL import Image, ImageDraw, ImageFont
 import time
 
-# Initialize I²C (bus=1, address=0x3C is common for 128×64 OLED)
-serial = i2c(port=1, address=0x3C)
-device = ssd1306(serial)
+# Initialize I²C bus and SSD1306 OLED (128×64)
+i2c = busio.I2C(board.SCL, board.SDA)
+oled = SSD1306_I2C(128, 64, i2c)
+
+# Clear display
+oled.fill(0)
+oled.show()
 
 # Create a blank image buffer
-width, height = device.width, device.height
+width, height = oled.width, oled.height
 image = Image.new("1", (width, height))
 draw = ImageDraw.Draw(image)
 font = ImageFont.load_default()
 
-# Draw text (or shapes) onto the buffer
-draw.rectangle((0, 0, width - 1, height - 1), outline=0, fill=0)  # clear display
+# Draw text
 draw.text((0, 0), "Hello, Pi 5B!", font=font, fill=255)
 
 # Send buffer to OLED
-device.display(image)
+oled.image(image)
+oled.show()
 time.sleep(5)

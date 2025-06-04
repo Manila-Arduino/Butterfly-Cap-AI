@@ -129,10 +129,16 @@ class OD_Custom:
         results = sorted(results, key=lambda x: x.score, reverse=True)
 
         if len(results) > 0:
+            # max_area_obj = max(
+            #     results,
+            #     key=lambda obj: (obj.boxes[2] - obj.boxes[0])
+            #     * (obj.boxes[3] - obj.boxes[1]),
+            #     default=None,
+            # )
+
             max_area_obj = max(
                 results,
-                key=lambda obj: (obj.boxes[2] - obj.boxes[0])
-                * (obj.boxes[3] - obj.boxes[1]),
+                key=lambda obj: obj.score,
                 default=None,
             )
 
