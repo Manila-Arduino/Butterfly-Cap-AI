@@ -16,7 +16,7 @@ img_height = 512
 input_layer_name = "input_layer_4"
 output_layer_name = "output_0"
 
-arduino_port = ""
+arduino_port = "/dev/ttyUSB0"
 if is_rpi:
     from classes.ShutdownButton import ShutdownButton
 
